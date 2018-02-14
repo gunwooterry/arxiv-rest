@@ -1,0 +1,4 @@
+GET        /papers/:id               controllers.PaperController.getPaperById(id)
+GET        /subjects/:subject        controllers.PaperController.getPapersBySubject(subject, from: Int, max: Int, keyword: Option[String])
+GET        /keywords/:keyword        controllers.PaperController.getPapersByKeyword(keyword, from: Int, max: Int)
+GET        /authors/:author          controllers.PaperController.getPapersByAuthor(author, from: Int, max: Int)
