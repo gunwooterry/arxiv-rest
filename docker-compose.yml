@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  play:
+    container_name: arxiv-api
+    restart: always
+    build: 
+      context: ./play
+    volumes:
+      - ./play/svc:/svc
+    ports:
+      - "9000:9000"
+    expose:
+      - "9000"
+
+  nginx:
+    container_name: arxiv-nginx
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/sites-enabled:/etc/nginx/sites-enabled
+    links:
+      - play:play
