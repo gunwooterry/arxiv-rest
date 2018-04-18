@@ -16,11 +16,11 @@ services:
   nginx:
     container_name: arxiv-nginx
     restart: always
-    build: ./nginx/
+    image: nginx:alpine
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ./nginx:/etc/nginx/
     links:
       - play:play
